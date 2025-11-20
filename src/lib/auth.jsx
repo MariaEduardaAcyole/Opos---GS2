@@ -1,5 +1,5 @@
 // src/lib/auth.js
-import { users as fixedUsers } from "./../pages/data/users";
+import { users as fixedUsers } from "../data/users";
 
 export function login(email, senha) {
   // carrega usuários fixos + os cadastrados via signup

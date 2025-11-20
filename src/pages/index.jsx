@@ -9,8 +9,8 @@ import {
 } from "react-icons/lu";
 import { Fingerprint, Tickets } from "lucide-react";
 
-import eventosData from "./data/eventos.json";
-import vagasData from "./data/vagas.json";
+import eventosData from "../data/eventos.json";
+import vagasData from "../data/vagas.json";
 import CarrosselEventos from "../components/CarrosselEventos";
 
 export default function Home() {

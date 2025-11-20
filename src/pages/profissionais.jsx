@@ -1,5 +1,5 @@
 import { useState } from "react";
-import profiles from "./data/profissionais.json";
+import profiles from "../data/profissionais.json";
 import ProfileCard from "../components/ProfileCard.jsx";
 import ProfileModal from "../components/ProfileModal";
 import SearchBar from "../components/SearchBar";
