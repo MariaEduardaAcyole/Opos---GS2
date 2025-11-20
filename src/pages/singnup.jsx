@@ -1,4 +1,3 @@
-// src/pages/signup.jsx
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { signupUser } from "../lib/auth";

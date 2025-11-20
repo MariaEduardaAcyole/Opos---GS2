@@ -1,8 +1,12 @@
 // src/lib/auth.js
-import { users } from "./../pages/data/users";
+import { users as fixedUsers } from "./../pages/data/users";
 
 export function login(email, senha) {
-  const user = users.find(
+  // carrega usuários fixos + os cadastrados via signup
+  const saved = JSON.parse(localStorage.getItem("extraUsers") || "[]");
+  const allUsers = [...fixedUsers, ...saved];
+
+  const user = allUsers.find(
     (u) => u.email === email && u.senha === senha
   );
 
@@ -10,14 +14,29 @@ export function login(email, senha) {
     return { ok: false, message: "Credenciais inválidas" };
   }
 
-  // teste se salvou ANTES do redirect
-  try {
-    localStorage.setItem("session", JSON.stringify(user));
-  } catch (err) {
-    console.error("Erro ao salvar sessão:", err);
-  }
+  localStorage.setItem("session", JSON.stringify(user));
 
   return { ok: true, user };
+}
+
+export function signupUser(email, senha) {
+  const saved = JSON.parse(localStorage.getItem("extraUsers") || "[]");
+
+  // Evita duplicados
+  const exists =
+    saved.find((u) => u.email === email) ||
+    fixedUsers.find((u) => u.email === email);
+
+  if (exists) {
+    return { ok: false, message: "E-mail já cadastrado" };
+  }
+
+  // salva novo usuário
+  const newUser = { email, senha };
+  saved.push(newUser);
+  localStorage.setItem("extraUsers", JSON.stringify(saved));
+
+  return { ok: true, message: "Cadastro realizado!", user: newUser };
 }
 
 export function getSession() {

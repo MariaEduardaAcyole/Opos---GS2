@@ -1,19 +1,12 @@
-import Home from "../pages/index";
-import Vagas from "../pages/vagas";
-import Networking from "../pages/networking";
+import "@/styles/globals.css";
 import Header from "@/components/Header";
-import { ThemeProvider } from "../context/ThemeContext";
-
-import "../styles/globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className="app-container">
-      <ThemeProvider>
-        {" "}
-        <Header />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </div>
+    <ThemeProvider>
+      <Header />
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 }
