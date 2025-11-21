@@ -89,6 +89,12 @@ npm run dev
 Acesse em:
 👉 http://localhost:3000
 
+Acesse o deploy em:
+https://vercel-oposgs2-2sf7rb130-andromeda-spacequest.vercel.app/login
+
+Repositório do Vercel:
+https://github.com/MariaEduardaAcyole/vercel-oposgs2
+
 💬 Como Rodar o Login
 
 Use somente os usuários permitidos listados acima.
